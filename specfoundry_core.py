@@ -1,0 +1,1 @@
+# SpecFoundry core
