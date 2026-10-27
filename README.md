@@ -4,6 +4,12 @@ SpecFoundry is an interactive engineering-specification wizard for AI and agent 
 
 It is designed to force disciplined system design before implementation: clarify intent, define environment and boundaries, establish externally verifiable success, specify task distributions, define a baseline, describe the operating loop, make memory explicit, set autonomy and trust boundaries, define evaluation, and only then declare a system implementation-ready.
 
+## Free 15-minute action-risk quickcheck
+
+**[Check your AI agent's permissions, spend controls, retries and audit evidence](offers/agent-action-risk-quickcheck.md)** before allowing it to act unattended. No account, no keys, no private data. This is an evidence-based self-assessment, not a certification.
+
+**En français :** [Revue de préparation des agents IA — périmètre et livrables](offers/revue-architecture-agents-ia-fr.md).
+
 ## For teams preparing an agent to act in production
 
 **Need a second pair of eyes before an AI agent spends money, contacts customers, or changes real systems?** A fixed-scope [Agent Architecture Readiness Review](offers/agent-architecture-readiness-review.md) maps action boundaries, verifies evidence, and produces a prioritized implementation brief. Indicative fee: **€1,490 excl. applicable taxes** for one workflow; scope and terms are confirmed before any engagement.
