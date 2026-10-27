@@ -1,0 +1,61 @@
+name: Agent architecture review enquiry
+description: Request a non-binding scoping conversation for an AI agent readiness review.
+title: "[Review enquiry] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is PUBLIC. Do not include secrets, credentials, personal data, customer records, unreleased code, or sensitive vulnerabilities.
+        The indicative review fee is €1,490 excl. applicable taxes for one workflow; any engagement requires written agreement on scope and payment.
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Current stage
+      description: Select the closest match.
+      options:
+        - Concept / architecture
+        - Working prototype
+        - Pre-production
+        - Already in production
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should this agent accomplish?
+      description: Describe the intended outcome in non-confidential terms.
+      placeholder: "Our agent triages inbound requests and drafts follow-up actions for approval."
+    validations:
+      required: true
+  - type: checkboxes
+    id: action_classes
+    attributes:
+      label: Action categories
+      options:
+        - label: Paid API calls or cloud spend
+        - label: Payments or purchases
+        - label: External messages or outreach
+        - label: Data changes or destructive actions
+        - label: Background autonomous execution
+  - type: textarea
+    id: blocker
+    attributes:
+      label: Biggest current blocker
+      description: No proprietary details required.
+      placeholder: "We cannot independently verify retries and approval boundaries."
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Preferred private contact route (optional)
+      description: Use a public business contact channel or state that you prefer GitHub follow-up. Do not share personal contact information unless you choose to make it public.
+      placeholder: "GitHub follow-up preferred"
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I understand this issue is public and is not an order, a payment, or a guaranteed engagement.
+          required: true
