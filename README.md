@@ -4,6 +4,12 @@ SpecFoundry is an interactive engineering-specification wizard for AI and agent 
 
 It is designed to force disciplined system design before implementation: clarify intent, define environment and boundaries, establish externally verifiable success, specify task distributions, define a baseline, describe the operating loop, make memory explicit, set autonomy and trust boundaries, define evaluation, and only then declare a system implementation-ready.
 
+## For teams preparing an agent to act in production
+
+**Need a second pair of eyes before an AI agent spends money, contacts customers, or changes real systems?** A fixed-scope [Agent Architecture Readiness Review](offers/agent-architecture-readiness-review.md) maps action boundaries, verifies evidence, and produces a prioritized implementation brief. Indicative fee: **€1,490 excl. applicable taxes** for one workflow; scope and terms are confirmed before any engagement.
+
+[Request a non-binding scoping conversation](https://github.com/f3manga-cpu/specfoundry/issues/new?template=agent-review.yml). GitHub issues are public: do not submit secrets or confidential information. This is a service enquiry, not a checkout or a confirmed sale.
+
 ## Run locally
 
 ```bash
