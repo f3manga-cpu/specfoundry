@@ -8,6 +8,8 @@ It is designed to force disciplined system design before implementation: clarify
 
 **[Check your AI agent's permissions, spend controls, retries and audit evidence](offers/agent-action-risk-quickcheck.md)** before allowing it to act unattended. No account, no keys, no private data. This is an evidence-based self-assessment, not a certification.
 
+**Démarrage à périmètre réduit :** [Snapshot des surfaces d'action — 290 € HT indicatifs, 1 workflow / 1 dépôt public](offers/agent-action-surface-snapshot-fr.md). Livrable synthétique sous un jour ouvré cible après accord et réception des éléments ; pas d'accès production, pas de certification ni de paiement automatique.
+
 **En français :** [Revue de préparation des agents IA — périmètre et livrables](offers/revue-architecture-agents-ia-fr.md).
 
 ## For teams preparing an agent to act in production
