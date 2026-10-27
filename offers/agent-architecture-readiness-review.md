@@ -12,6 +12,8 @@
 
 **Delivery target:** five business days after a mutually agreed start date and receipt of sufficient non-sensitive technical documentation. A review may conclude that the workflow is not ready; this is not a certification or a promise of production safety.
 
+**[See a complete illustrative sample report](sample-agent-readiness-report.md)** before enquiring. It uses a fictional procurement agent, separates evidence from assumptions, and shows the expected structure of findings and acceptance tests.
+
 ## Who this is for
 
 - Teams building agents that call paid APIs, trigger payments, send messages, modify customer data, or run unattended.
