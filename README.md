@@ -53,3 +53,17 @@ The workflow separates:
 - **Readiness gates** — criteria that must pass before implementation is considered ready.
 
 The specification can be exported at any point as Markdown or JSON, but incomplete work remains visibly marked as not implementation-ready.
+
+## Offline action/spend surface inventory (new)
+
+Run a **free, read-only** inventory of possible money-moving or external-action code paths in any Python/JS/TS/Go/Rust project. No signup, API key or network access is required:
+
+```bash
+python tools/agent_surface_scan.py /path/to/your/project --format markdown
+python tools/agent_surface_scan.py /path/to/your/project --format json --output agent-surfaces.json
+python -m unittest discover -s tests -p 'test_agent_surface_scan.py'
+```
+
+The output lists filenames, line numbers and categories for potential model spending, payment actions, messages, process execution, database mutations, HTTP writes and background jobs. It **never copies source lines or secrets into the report** and excludes common dependency/build folders and `.env` files. The scanner does not make network calls or execute the scanned project.
+
+**Important:** these are heuristic text matches, not confirmed vulnerabilities or proof of safety. The inventory is a starting point for the [free evidence checklist](offers/agent-action-risk-quickcheck.md); teams needing a human-scoped architecture review can consult the [fixed-scope service offer](offers/agent-architecture-readiness-review.md).
