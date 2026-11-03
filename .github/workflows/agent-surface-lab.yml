@@ -10,7 +10,7 @@ on:
       - '.github/workflows/agent-surface-lab.yml'
 jobs:
   unit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,7 +21,7 @@ jobs:
   production-browser:
     needs: unit
     if: github.ref == 'refs/heads/surface-lab-launch-2026-11-03'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
