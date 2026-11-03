@@ -1,0 +1,19 @@
+name: Agent Surface Lab checks
+on:
+  push:
+    branches: [surface-lab-launch-2026-11-03]
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'tests/scanner.test.mjs'
+      - '.github/workflows/agent-surface-lab.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify scanner rules
+        run: node --test tests/scanner.test.mjs

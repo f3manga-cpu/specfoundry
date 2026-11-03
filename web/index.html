@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Map the external actions an AI agent's code could trigger. Private, read-only, browser-based source analysis with evidence export.">
+  <meta name="theme-color" content="#091015">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Agent Surface Lab — SpecFoundry</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a href="#top" class="wordmark" aria-label="SpecFoundry home"><span class="mark">S<span>F</span></span><span>SPEC<span class="mutedmark">FOUNDRY</span></span></a>
+    <nav aria-label="Primary navigation"><a href="#workspace">Workspace</a><a href="#method">Method</a><a href="#engage">For teams</a></nav>
+    <a class="nav-cta" href="mailto:f3.manga@gmail.com?subject=Agent%20Surface%20Review%20%E2%80%94%20Scope%20request">Request review <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero layout" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> ENGINEERING INTELLIGENCE <span class="slash">/</span> OPEN WORKBENCH</div>
+        <h1 id="hero-title">Before an agent <em>acts,</em><br>know what it can touch.</h1>
+        <p class="lede">Inspect source code for potential payments, messages, data writes, commands, model spending and agent handoffs. Get a reviewable map of action surfaces <strong>before granting real authority.</strong></p>
+        <div class="hero-actions">
+          <button type="button" class="button button-primary" id="demo-btn"><span class="button-icon" aria-hidden="true">▶</span> Explore a sample scan</button>
+          <button type="button" class="button button-outline" id="pick-files-hero">Analyze your files <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="trust-points"><span><span class="tick">✓</span> No source upload</span><span><span class="tick">✓</span> No keys or sign-up</span><span><span class="tick">✓</span> Downloadable evidence</span></div>
+      </div>
+      <div class="hero-display" aria-label="Product architecture diagram">
+        <div class="screen-cap"><span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-name">SURFACE LAB <span class="haze">/ OPERATING MODEL</span></span><span class="screen-tag">READ ONLY</span></div>
+        <div class="diagram">
+          <div class="diagram-row"><span class="mini-label">SYSTEM BOUNDARY</span><span class="mini-label">STATIC ANALYSIS · NO EXECUTION</span></div>
+          <div class="diagram-node origin"><span class="node-icon">{ }</span><span><strong>Agent codebase</strong><small>Selected browser files</small></span><span class="node-meta">INPUT</span></div>
+          <div class="downline"></div>
+          <div class="diagram-node engine"><span class="node-icon">⊞</span><span><strong>Heuristic scanner</strong><small>8 action-surface classes</small></span><span class="node-meta">INSPECT</span></div>
+          <div class="branch-lines"></div>
+          <div class="branch-3"><div><span>€</span><strong>Economic</strong><small>Pay · spend</small></div><div><span>↗</span><strong>External</strong><small>Send · write</small></div><div><span>⌘</span><strong>Execution</strong><small>Run · delegate</small></div></div>
+          <div class="diagram-foot"><span>↓</span> Evidence map <span class="divide-dot">·</span> Review decisions <span class="divide-dot">·</span> JSON report</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace-section layout" id="workspace" aria-labelledby="workspace-title">
+      <div class="section-heading"><div><p class="kicker">01 / THE WORKBENCH</p><h2 id="workspace-title">Agent action-surface inventory</h2><p class="section-copy">A real static scan, not a generated risk score. Inspect a folder from your device or explore the explicitly synthetic sample.</p></div><span class="version-pill">ENGINE v1.0 <span class="status-led"></span></span></div>
+      <div class="privacy-banner"><span class="privacy-icon" aria-hidden="true">◎</span><div><strong>Local processing only</strong><span>Your browser reads selected text files. Nothing is sent to a server. Excluded folders and file limits are documented below.</span></div><span class="privacy-mark">LOCAL / 100%</span></div>
+      <div class="input-panel" id="dropzone">
+        <div class="upload-graphic" aria-hidden="true"><span>↥</span></div>
+        <div><strong>Drop source files here, or select a project folder.</strong><p>Python, JavaScript, TypeScript, Go, Rust, shell and YAML. Up to 2,000 files / 25 MB total.</p></div>
+        <div class="upload-actions"><button class="button button-secondary" type="button" id="folder-btn">Select folder</button><button type="button" class="button button-flat" id="files-btn">Select files</button></div>
+      </div>
+      <input id="folder-input" class="visually-hidden" type="file" webkitdirectory directory multiple aria-label="Choose a source folder">
+      <input id="file-input" class="visually-hidden" type="file" multiple accept=".py,.js,.jsx,.ts,.tsx,.mjs,.cjs,.go,.rs,.sh,.yml,.yaml" aria-label="Choose source files">
+      <div id="status" role="status" aria-live="polite" class="status-line">Ready for a local source scan. Try the sample to see the complete workflow.</div>
+
+      <div class="metrics" id="metrics" aria-label="Scan metrics">
+        <article class="metric"><span class="metric-label">FILES EXAMINED</span><strong id="metric-files">—</strong><small id="metric-file-note">Awaiting scan</small></article>
+        <article class="metric"><span class="metric-label">SURFACE MATCHES</span><strong id="metric-matches">—</strong><small>Heuristic locations</small></article>
+        <article class="metric"><span class="metric-label">ACTION CLASSES</span><strong id="metric-classes">—</strong><small>Across eight categories</small></article>
+        <article class="metric"><span class="metric-label">REVIEW PROGRESS</span><strong id="metric-review">—</strong><small>Self-attested coverage</small></article>
+      </div>
+
+      <div class="workgrid">
+        <section class="panel map-panel" aria-labelledby="map-title">
+          <div class="panel-heading"><div><p class="panel-eyebrow">EXPOSURE MAP</p><h3 id="map-title">Action classes</h3></div><span class="small-chip">RULE-BASED</span></div>
+          <div id="action-map" class="action-map"><div class="empty-state"><span class="empty-glyph">⌗</span><strong>No scan loaded</strong><p>Run the sample or choose a source folder to inspect detected action surfaces.</p></div></div>
+        </section>
+        <section class="panel review-panel" aria-labelledby="review-title">
+          <div class="panel-heading"><div><p class="panel-eyebrow">HUMAN CONTROL</p><h3 id="review-title">Review worklist</h3></div><span class="small-chip" id="review-counter">0 / 0</span></div>
+          <div class="review-intro">Each finding creates a question, not a vulnerability verdict. Record your own disposition for each category.</div>
+          <div id="review-list" class="review-list"><div class="empty-small">Categories requiring review appear after a scan.</div></div>
+        </section>
+      </div>
+
+      <section class="panel evidence-panel" aria-labelledby="evidence-title">
+        <div class="panel-heading evidence-heading"><div><p class="panel-eyebrow">SOURCE EVIDENCE</p><h3 id="evidence-title">File and line inventory</h3><p class="panel-description">The report contains locations and categories, never the code itself.</p></div><div class="evidence-tools"><label for="filter" class="visually-hidden">Filter evidence by category</label><select id="filter" disabled><option value="all">All action classes</option></select><button type="button" class="button button-secondary button-small" id="export-json" disabled>Export JSON ↓</button><button type="button" class="button button-flat button-small" id="export-html" disabled>Export report ↗</button></div></div>
+        <div class="table-scroll"><table class="evidence-table"><thead><tr><th>LOCATION</th><th>ACTION SURFACE</th><th>PRIORITY</th><th>STATUS</th></tr></thead><tbody id="evidence-rows"><tr><td colspan="4" class="table-empty">No evidence yet. Files remain on your device.</td></tr></tbody></table></div>
+        <div class="table-foot"><span id="pagination-status">0 evidence locations</span><button type="button" id="load-more" class="button button-flat button-small" hidden>Show more ↓</button></div>
+      </section>
+    </section>
+
+    <section class="method-section layout" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><div><p class="kicker">02 / HOW TO INTERPRET IT</p><h2 id="method-title">Find the authority boundary. Then verify it.</h2><p class="section-copy">Use the map to start a review of scope, approval, evidence and recovery—not to declare an application secure.</p></div></div>
+      <div class="method-grid"><article><span class="method-number">01</span><h3>Discover</h3><p>Identify code locations capable of spending money, sending messages, writing data or delegating actions.</p></article><article><span class="method-number">02</span><h3>Constrain</h3><p>Check identity, budgets, permissions, retries, approval thresholds and trust boundaries.</p></article><article><span class="method-number">03</span><h3>Prove</h3><p>Record a human review disposition and export a location-based report for deeper testing.</p></article></div>
+      <p class="method-disclaimer"><strong>Important:</strong> Static regex matches are pointers for review, not confirmed security findings. No code runs, no dependency or behavioral analysis occurs, and this tool is not a security audit, certification or AI Act compliance assessment. Client input is not uploaded or stored remotely.</p>
+    </section>
+
+    <section class="engage-section layout" id="engage"><div><p class="kicker">03 / FOR ENGINEERING TEAMS</p><h2>Need an independent second look?</h2><p>Turn the self-service inventory into a scoped human review: one agreed public repository, one agent workflow and up to 200 source files. A concise, actionable written report—not an automated certification.</p><div class="engage-actions"><a class="button button-primary" href="./service.html">Explore the €290 review <span aria-hidden="true">↗</span></a><a class="button button-outline" href="mailto:f3.manga@gmail.com?subject=SpecFoundry%20review%20%E2%80%94%20scope%20check&body=Hello%2C%0A%0APublic%20repository%20URL%3A%0AWorkflow%20to%20review%3A%0ADecision%20or%20risk%20to%20clarify%3A%0A">Check scope first</a></div><p class="scope-footnote">€290 one-time; scope and availability must be confirmed before purchase. Delivery target: one business day after agreement, payment and complete inputs.</p></div><div class="engage-visual" aria-hidden="true"><div class="visual-diamond">SF</div><span>SPECFOUNDRY / REVIEW SERVICES</span></div></section>
+  </main>
+  <footer class="footer layout"><span>© 2026 SpecFoundry · Independent agent engineering tools. <a href="./service.html">Scope &amp; terms</a></span><span>Built for evidence, not artificial certainty. <a href="https://github.com/f3manga-cpu/specfoundry" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></span></footer>
+</body>
+</html>
